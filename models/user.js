@@ -18,14 +18,14 @@ const model = User.init(
             notEmpty: true,
         }
        },
-       fist_name: {
+       firstname: {
         type: DataTypes.TEXT,
         validate: {
             len: [1, 25],
             notEmpty: true
         }
        },
-       last_name: {
+       lastname: {
         type: DataTypes.TEXT,
         validate: {
             len: [1, 25],
@@ -56,7 +56,7 @@ const model = User.init(
         type: DataTypes.TEXT,
         unique: true,
         validate: {
-            notEmpty: null,
+            notEmpty: true,
             isEmail: true
         }
        },
