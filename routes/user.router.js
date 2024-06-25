@@ -14,6 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:username', async (req, res) => {
+    try {
+        const user = await new UserController().getUser(req, res);
+        if(!user) {
+            console.log(user)
+            res.status(200).send('Пользователь не найден');
+        } else {
+            res.status(200).send(JSON.stringify(user, null, 2));
+        }
+    } catch (error) {
+        res.status(503).send(`Сервер временно недоступен и не может обработать текущий запрос: ${error}`)
+    }
+})
+
 router.post('/', async (req, res) => {
     try {
         const newUser = await new UserController().createUser(req, res);
