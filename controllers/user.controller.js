@@ -7,6 +7,14 @@ class UserController {
         return users;
     };
 
+    async getUser(req, __res) {
+        const username = req.params.username;
+        const user = await User.findAll({
+            where: { username },
+        });
+        return user[0];
+    }
+
     async createUser(req, __res) {
         const {username, firstname, lastname, surname, year, day, month, phone, email, password} = req.body;
         const hashPassword = new Encrypt().hash(password);
@@ -15,7 +23,7 @@ class UserController {
                 {username, firstname, lastname, surname, birthday: correctFormatDateBirthday, phone, email, password: hashPassword}, 
                 { fields: ['username', 'firstname', 'lastname', 'surname', 'birthday','phone', 'email', 'password'] });
         return newUser;
-    }
+    };
 }
 
 export default UserController;
