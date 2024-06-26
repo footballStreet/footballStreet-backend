@@ -63,6 +63,7 @@ const model = Games.init(
     }, {
         sequelize: db,
         tableName: 'Games',
+        timestamps: false,
     }
 );
 
