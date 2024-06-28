@@ -1,6 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import db from './index.js';
 import Game from './game.js';
+import Member from './member.js';
 
 class User extends Model {};
 
@@ -76,6 +77,7 @@ const model = User.init(
     }
 );
 
-model.hasMany(Game, { foreignKey: 'creatorId' })
+model.hasMany(Game, { foreignKey: 'creatorId' });
+model.hasMany(Member, {foreignKey: 'userId'});
 
 export default model;

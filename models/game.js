@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import userModel from './user.js';
+import Memeber from './member.js';
 import db from './index.js';
 
 class Game extends Model {};
@@ -66,5 +66,7 @@ const model = Game.init(
         timestamps: false,
     }
 );
+
+model.hasMany(Memeber, { foreignKey: 'gameId' })
 
 export default model;
