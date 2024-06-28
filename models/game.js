@@ -2,9 +2,9 @@ import { DataTypes, Model } from 'sequelize';
 import userModel from './user.js';
 import db from './index.js';
 
-class Games extends Model {};
+class Game extends Model {};
 
-const model = Games.init(
+const model = Game.init(
     {
         id:{
             type: DataTypes.INTEGER,
@@ -50,7 +50,7 @@ const model = Games.init(
                 max: 6
             }
         },
-        userId: {
+        creatorId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -62,11 +62,9 @@ const model = Games.init(
         }
     }, {
         sequelize: db,
-        tableName: 'Games',
+        tableName: 'Game',
         timestamps: false,
     }
 );
-
-model.belongsTo(userModel, { foreignKey: 'userId' });
 
 export default model;

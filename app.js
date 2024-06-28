@@ -4,7 +4,7 @@ import methodOverride from 'method-override';
 import bodyParser from 'body-parser';
 import db from './models/index.js';
 import userRouter from './routes/user.router.js';
-import gamesRouter from './routes/games.router.js';
+import gamesRouter from './routes/game.router.js';
 
 db.authenticate()
   .catch(error => console.error(error))

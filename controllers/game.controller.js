@@ -1,4 +1,4 @@
-import gamesModel from '../models/games.js';
+import gamesModel from '../models/game.js';
 
 class GamesController{
     async getGames(__req, __res) {

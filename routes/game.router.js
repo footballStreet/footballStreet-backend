@@ -1,6 +1,6 @@
 import Express from 'express';
-import Games from '../models/games.js';
-import GamesController from '../controllers/games.controller.js';
+import Games from '../models/game.js';
+import GamesController from '../controllers/game.controller.js';
 
 const router = new Express();
 
