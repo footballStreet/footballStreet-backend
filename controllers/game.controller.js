@@ -8,12 +8,12 @@ class GamesController{
 
     async createGames(req, __res) {
         const { city, street, build, comment, year, day, month, hour, minutes, length } = req.body;
-        // const userId = req.params.id; After add session
-        const userId = 1;
+        // const creatorId = req.params.id; After add session
+        const creatorId = 1;
         const startTime = new Date(year, month - 1, day, hour + 3, minutes);
         const newGame = await gamesModel.create(
-            { city, street, build, comment, starttime: startTime, length, userId }, 
-            { fields: ['city', 'street', 'build', 'comment', 'starttime', 'length', 'userId'] }
+            { city, street, build, comment, starttime: startTime, length, creatorId }, 
+            { fields: ['city', 'street', 'build', 'comment', 'starttime', 'length', 'creatorId'] }
         );
         return newGame;
     }
