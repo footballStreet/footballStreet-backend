@@ -9,7 +9,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       }, 
-      gamesId: {
+      gameId: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         references: {

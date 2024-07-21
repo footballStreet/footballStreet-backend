@@ -10,7 +10,7 @@ const model = Member.init(
             autoIncrement: true,
             primaryKey: true
         }, 
-        gamesId: {
+        gameId: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
